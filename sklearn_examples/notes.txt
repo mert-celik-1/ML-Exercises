@@ -1,0 +1,33 @@
+Supervised Learning (Denetimli Öğrenme): Regresyon(Regression), Sınıflandırma (Classification)
+Unsupervised Learning (Denetimsiz Öğrenme): Kümeleme(Clustering) , Boyut İndirgeme (Dimensionality Reduction)
+Reinforcement Learning (Pekiştirmeli Öğrenme): Agent
+
+Supervised Learning:
+
+Makine öğrenmesinde bir algoritmanın, girdi verileriyle birlikte doğru çıktıları (etiketleri) gördüğü ve bu örneklerden öğrenerek yeni, görülmemiş veriler için tahmin yapmayı öğrendiği bir yöntemdir.
+Veri seti şu şekilde olur:
+Girdi (X) → Özellikler (örneğin yaş, kilo, boy)
+Çıktı (y) → Etiket (örneğin hastalık var mı, ev fiyatı ne)
+
+Amaç:
+Bu girdi-çıktı ilişkisine bakarak, algoritmanın doğru sonuçları tahmin edecek bir model öğrenmesidir.
+Supervised learning’in iki temel alt türü vardır:
+
+-Sınıflandırma (Classification): Çıktı kategoriktir (örneğin: evet/hayır, kırmızı/mavi/yeşil)
+-Regresyon (Regression): Çıktı sürekli bir değerdir (örneğin: sıcaklık,fiyat)
+
+Classification Algoritmaları:
+
+ 1) Lojistik Regresyon (Logistic Regression):
+
+ Lojistik regresyon adında regresyon geçmesine rağmen aslında sınıflandırma problemleri için kullanılan bir algoritmadır. Temel amacı, verilen
+ girdilere göre bir örneğin belirli bir sınıfa ait olma olasılığını tahmin etmektir. Model önce doğrusal bir regresyon uygular. Sonra bu sonucu
+ sigmoid fonksiyonu ile 0-1 aralığına dönüştürerek sınıflandırma yapar. Lojistik regresyon, özellikle ikili sınıflandırma problemlerinde yaygın olarak kullanılır. (Binary Classification)
+ Hızlı, basit ve yorumlanabilir bir modeldir. Ancak, doğrusal olmayan ilişkileri modellemek için yeterli olmayabilir.
+
+
+ Classification Algoritmaları Metrikleri:
+    1) Doğruluk (Accuracy): Accuracy, modelin doğru sınıflandırdığı örneklerin toplam örneklere oranıdır.
+    2) Kesinlik (Precision): Modelin pozitif olarak tahmin ettiği örneklerin ne kadarının doğru olduğunu gösterir. Yüksek olması durumunda, modelin yanlış pozitif tahminlerde bulunma oranı düşüktür.
+    3) Duyarlılık (Recall): Modelin gerçek pozitif örnekleri ne kadar iyi tahmin ettiğini gösterir. Yüksek olması durumunda, modelin yanlış negatif tahminlerde bulunma oranı düşüktür.
+    4) F1 Skoru: Kesinlik ve duyarlılığı birleştirerek tek bir metrik sağlar. Özellikle dengesiz veri setlerinde daha anlamlıdır.
