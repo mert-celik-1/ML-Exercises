@@ -16,6 +16,8 @@ Supervised learning’in iki temel alt türü vardır:
 -Sınıflandırma (Classification): Çıktı kategoriktir (örneğin: evet/hayır, kırmızı/mavi/yeşil)
 -Regresyon (Regression): Çıktı sürekli bir değerdir (örneğin: sıcaklık,fiyat)
 
+ -------------------------------------------------------------------------------------------------------------------------
+
 Classification Algoritmaları:
 
  1) Lojistik Regresyon (Logistic Regression):
@@ -31,3 +33,36 @@ Classification Algoritmaları:
     2) Kesinlik (Precision): Modelin pozitif olarak tahmin ettiği örneklerin ne kadarının doğru olduğunu gösterir. Yüksek olması durumunda, modelin yanlış pozitif tahminlerde bulunma oranı düşüktür.
     3) Duyarlılık (Recall): Modelin gerçek pozitif örnekleri ne kadar iyi tahmin ettiğini gösterir. Yüksek olması durumunda, modelin yanlış negatif tahminlerde bulunma oranı düşüktür.
     4) F1 Skoru: Kesinlik ve duyarlılığı birleştirerek tek bir metrik sağlar. Özellikle dengesiz veri setlerinde daha anlamlıdır.
+
+ -------------------------------------------------------------------------------------------------------------------------
+
+Regresyon Algoritmaları:
+
+ 1) Doğrusal Regresyon (Linear Regression):
+    Doğrusal regresyon, bağımlı ve bağımsız değişkenler arasındaki doğrusal ilişkiyi modellemek için kullanılan bir tekniktir. Model, en küçük kareler yöntemi ile
+    doğrusal bir fonksiyon oluşturur. Bu fonksiyon, bağımsız değişkenlerin (özelliklerin) ağırlıklı toplamı ile bağımlı değişkenin (sonucun) tahmin edilmesini sağlar.
+    Doğrusal regresyon, sürekli bir hedef değişkeni tahmin etmek için kullanılır. Örneğin, bir evin fiyatını tahmin etmek için evin büyüklüğü, konumu gibi özellikleri kullanabiliriz.
+    Doğrusal regresyon, basit ve yorumlanabilir bir modeldir. Ancak, doğrusal olmayan ilişkileri modellemek için yeterli olmayabilir. Ayrıca, çoklu doğrusal bağlantı (multicollinearity) gibi sorunlarla karşılaşabiliriz.
+
+ 2) Ridge Regresyon (Ridge Regression):
+    Ridge regresyon, doğrusal regresyonun bir çeşididir. Temel amacı, modelin karmaşıklığını azaltmak ve aşırı uyum (overfitting) sorununu önlemektir.
+    Ridge regresyon, modelin ağırlıklarına L2 ceza terimi ekleyerek çalışır. Bu ceza terimi, ağırlıkların büyüklüğünü sınırlayarak modelin daha basit olmasını sağlar.
+    Ridge regresyon, özellikle çoklu doğrusal bağlantı (multicollinearity) sorunları olan veri setlerinde faydalıdır. Ancak, modelin yorumlanabilirliğini azaltabilir.
+
+ 3) Lasso Regresyon (Lasso Regression):
+    Lasso regresyon, doğrusal regresyona L1 regularizasyon ekler.Bu regularizasyon, bazı katsayıları sıfıra indirerek özellik seçimi (feature selection) de yapar.
+    Ridge gibi overfitting'i önlemeye yardımcı olur, ancak bazı özelliklerin tamamen hariç tutulmasına olanak tanır.
+
+
+ Regresyon Algoritmaları Metrikleri:
+    1) Ortalama Mutlak Hata (MAE): Tahmin edilen değerler ile gerçek değerler arasındaki mutlak farkların ortalamasını alır. Ne kadar azsa, model o kadar iyidir. Her hata eşit ağırlık taşır.
+    2) Ortalama Kare Hatası (MSE): Tahmin edilen değerler ile gerçek değerler arasındaki farkların karesinin ortalamasını alır. Ne kadar azsa, model o kadar iyidir. Büyük hatalara daha fazla ağırlık verir.
+    3) R-kare (R-squared): Modelin veriyi ne kadar iyi açıkladığını gösterir. 1'e yakın değerler, modelin veriyi iyi açıkladığını gösterir.
+
+    MAE yüksek MSE düşükse modelin tahminleri çok iyi değil ama büyük hatalar yapmıyor demektir.
+    MSE yüksek MAE düşükse az sayıda büyük hata yapıyor demektir.
+ -------------------------------------------------------------------------------------------------------------------------
+
+-StandardScaler : Özelliklerin ortalamasını 0, standart sapmasını 1 olacak şekilde ölçeklendirir. Bu, özelliklerin aynı ölçek üzerinde olmasını sağlar ve
+bazı algoritmaların daha iyi performans göstermesine yardımcı olur. Linear regression, logistic regression, svm, knn, pca, neural network(mlp,tensorflow,keras)
+gibi algoritmalar için önemlidir. Decision tree, random forest, xgboost gibi algoritmalar için gerekli değildir.
