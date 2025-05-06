@@ -63,6 +63,34 @@ Regresyon Algoritmaları:
     MSE yüksek MAE düşükse az sayıda büyük hata yapıyor demektir.
  -------------------------------------------------------------------------------------------------------------------------
 
+Unsupervised Learning:
+Veriler üzerinde etiket (doğru cevap) olmadan çalışan bir makine öğrenmesi türüdür. Algoritma, verilerdeki gizli desenleri, yapıları veya grupları kendisi keşfetmeye çalışır.
+En yaygın örnekleri clustering (kümeleme) ve dimensionality reduction (boyut indirgeme) yöntemleridir. Mesela, müşteri segmentasyonu yapmak ya da benzer belgeleri otomatik gruplamak için kullanılır.
+
+
+Cluster Algoritmaları:
+
+1) K-Means:
+Verileri k adet kümeye (gruba) ayıran popüler bir **clustering (kümeleme) algoritmasıdır. Her kümenin bir merkezi (centroid) vardır ve algoritma verileri bu merkezlere olan uzaklığa göre gruplaştırır.
+Başta rastgele seçilen merkezler, veri noktalarına göre tekrar tekrar güncellenir. Amaç, kümeler içindeki noktaların merkezlerine olan toplam uzaklığını (inertia) en aza indirmektir.
+Etiketli veri gerekmeden, sadece veri yapısına göre gruplama yapar.
+
+2) DBSCAN:
+Yoğunluk temelli bir kümeleme algoritmasıdır. Verileri, yakınında yeterince komşu (min_samples) olan noktaları gruplayarak kümeler oluşturur.
+Bu sayede şekli bozuk kümeleri ve aykırı değerleri (noise) başarılı şekilde ayırabilir. Kümeleri önceden belirtmeden otomatik keşfeder, bu yönüyle K-Means’ten farklıdır.
+Özellikle gürültülü veya düzensiz yapılı verilerde daha etkilidir.
+
+Clustering Dikkat Edilmesi Gereken Noktalar:
+
+1- Veri ölçeklendirmeden önce clustering yapılmamalı. Standart scalar veya minmax scalar ile veriler ölçeklendirilmeli.
+2- Küme sayısı (k) belirlenirken, Elbow yöntemi veya Silhouette skoru gibi yöntemler kullanılabilir. Kmeansde k yı önceden belirlemek zorundayız.
+3- Kümeleme algoritmaları, verinin yapısına bağlı olarak farklı sonuçlar verebilir. Bu nedenle, farklı algoritmalarla denemeler yapmak faydalı olabilir.
+4- Boyut fazlaysa görsel anlamda küme seçilemez. 2D veya 3D dışındaki kümeleri doğrudan göremeyiz. Bu durumda PCA veya t-SNE gibi boyut indirgeme yöntemleri kullanılabilir.
+5- Outlier sonucu bozabilir. Özellikle k-means algoritmasında, outlier'lar küme merkezlerini etkileyebilir. Bu nedenle, öncelikle anomaly detection (anormallik tespiti) yapılabilir.
+6- Kümelerin şekli önemlidir. KMeans, küme merkezlerine göre çalıştığı için küme şekilleri küresel olmalıdır. DBSCAN ise yoğunluk temelli olduğu için daha karmaşık şekilleri algılayabilir.
+ -------------------------------------------------------------------------------------------------------------------------
+
+
 -StandardScaler : Özelliklerin ortalamasını 0, standart sapmasını 1 olacak şekilde ölçeklendirir. Bu, özelliklerin aynı ölçek üzerinde olmasını sağlar ve
 bazı algoritmaların daha iyi performans göstermesine yardımcı olur. Linear regression, logistic regression, svm, knn, pca, neural network(mlp,tensorflow,keras)
 gibi algoritmalar için önemlidir. Decision tree, random forest, xgboost gibi algoritmalar için gerekli değildir.
