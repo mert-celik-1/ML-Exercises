@@ -27,6 +27,19 @@ Classification Algoritmaları:
  sigmoid fonksiyonu ile 0-1 aralığına dönüştürerek sınıflandırma yapar. Lojistik regresyon, özellikle ikili sınıflandırma problemlerinde yaygın olarak kullanılır. (Binary Classification)
  Hızlı, basit ve yorumlanabilir bir modeldir. Ancak, doğrusal olmayan ilişkileri modellemek için yeterli olmayabilir.
 
+2) Random Forest Classifier:
+
+Random Forest Classifier (RFC), birden çok karar ağacından oluşan ve her bir ağacın çıktısına göre oy çokluğuyla nihai sınıfı belirleyen bir ensemble (topluluk) öğrenme algoritmasıdır.
+Overfitting'e karşı dayanıklıdır çünkü her ağaç farklı bir alt küme üzerinde eğitilir. Bu sayede, modelin genelleme yeteneği artar. Doğruluğu yüksektir. Feature importance (özelliklerin önem derecesi) sağlar.
+Dengesiz veri setlerinde bile iyidir. Yorumlanabilirliği daha düşüktür çünkü birden fazla ağaç kullanır. Ayrıca, hiperparametre ayarlamaları gerektirir. Bellek kullanımı fazladır. Çok fazla ağaç varsa, eğitim süresi uzar.
+Karmaşık çok boyutlu verilerde iyi sonuç verir. Kredi skorlama, dolandırıcılık tespiti gibi uygulamalarda yaygın olarak kullanılır.
+
+3) Support Vector Classifier (SVC):
+
+SVC, SVM algoritmasının bir uygulamasıdır.Temel amacı, verileri en iyi şekilde ayıran bir hiper düzlem (hyperplane) bulmaktır.
+Bu hiper düzlem, iki sınıf arasındaki en büyük marjini (margin) sağlar. SVC, doğrusal ve doğrusal olmayan verilerle çalışabilir. Doğrusal olmayan veriler için kernel trick (çekirdek hilesi) kullanır.
+Destek vektörleri (support vectors), sınıfları ayıran en yakın noktaları temsil eder. Bu noktalar, modelin karar sınırını belirler. Kernel trick, verileri daha yüksek boyutlu bir uzaya dönüştürerek doğrusal olmayan sınıflandırma yapmayı sağlar.
+Bu sayede, karmaşık veri setlerinde bile iyi sonuçlar elde edilebilir. Az sayıda ama yüksek boyutlu veri setlerinde iyi sonuç verir. Büyük veri setlerinde yavaştır. Parametre ayarı zordur
 
  Classification Algoritmaları Metrikleri:
     1) Doğruluk (Accuracy): Accuracy, modelin doğru sınıflandırdığı örneklerin toplam örneklere oranıdır.
@@ -94,3 +107,8 @@ Clustering Dikkat Edilmesi Gereken Noktalar:
 -StandardScaler : Özelliklerin ortalamasını 0, standart sapmasını 1 olacak şekilde ölçeklendirir. Bu, özelliklerin aynı ölçek üzerinde olmasını sağlar ve
 bazı algoritmaların daha iyi performans göstermesine yardımcı olur. Linear regression, logistic regression, svm, knn, pca, neural network(mlp,tensorflow,keras)
 gibi algoritmalar için önemlidir. Decision tree, random forest, xgboost gibi algoritmalar için gerekli değildir.
+
+-Cross Validation: Modelin genelleme yeteneğini değerlendirmek için kullanılır. Veri setini k katmana böler ve her katmanı test seti olarak kullanarak modelin performansını değerlendirir.
+Modelin overfitting yapıp yapmadığını anlamak için önemlidir. Genellikle k=5 veya k=10 kullanılır. K-fold cross validation, stratified k-fold cross validation gibi türleri vardır. K-fold cross validation, veri setini k katmana böler ve
+her katmanı test seti olarak kullanarak modelin performansını değerlendirir. Veri seti K parçaya bölünür. Her seferinde 1 parça test verisi geri kalan K-1 parça eğitim verisi olarak kullanılır. Bu işlem K kez tekrarlanır ve her seferinde farklı bir parça test verisi olur.
+Sonuçta K tane doğruluk skoru elde edilir ve bunların ortalaması alınır. Performans ölçümünde daha güvenilir sonuç verir. Veriyi daha verimli kullanır. Hesaplama maliyeti yüksektir. Eğitim süresi artar.
